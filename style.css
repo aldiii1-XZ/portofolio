@@ -10,14 +10,15 @@
     --bg-main: #020203;
     --bg-card: rgba(255, 255, 255, 0.02);
     --bg-card-hover: rgba(255, 255, 255, 0.05);
-    --accent: #8b5cf6; /* Violet */
+    --accent: #8b5cf6;
+    /* Violet */
     --accent-glow: rgba(139, 92, 246, 0.3);
     --text-primary: #ffffff;
     --text-secondary: #94a3b8;
     --text-muted: #64748b;
     --border-subtle: rgba(255, 255, 255, 0.05);
     --border-active: rgba(139, 92, 246, 0.5);
-    
+
     /* Spacing & Radius */
     --radius-xl: 40px;
     --radius-lg: 32px;
@@ -48,8 +49,10 @@ body {
 body::before {
     content: "";
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: url('https://grainy-gradients.vercel.app/noise.svg');
     opacity: 0.12;
     pointer-events: none;
@@ -82,8 +85,13 @@ body::before {
 }
 
 @keyframes float {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(10%, 15%) scale(1.1); }
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(10%, 15%) scale(1.1);
+    }
 }
 
 /* Layout */
@@ -309,9 +317,22 @@ main {
 }
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-10px); }
-    60% { transform: translateY(-5px); }
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-10px);
+    }
+
+    60% {
+        transform: translateY(-5px);
+    }
 }
 
 /* Bento Grid */
@@ -415,7 +436,7 @@ main {
 
 /* Special Case: Basketball Card */
 .basketball-card {
-    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('assets/basketball.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), url('assets/basketball.png');
     background-size: cover;
     background-position: center;
 }
@@ -560,8 +581,10 @@ footer {
 }
 
 @media (max-width: 1024px) {
-    --sidebar-width: 0px;
-    
+    :root {
+        --sidebar-width: 0px;
+    }
+
     main {
         margin-left: 0;
         padding: 1rem;
