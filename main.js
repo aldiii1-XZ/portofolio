@@ -44,9 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             name: "TikTok",
-            handle: "@aldiii",
-            img: "https://unavatar.io/tiktok/aldiii",
-            url: "https://tiktok.com/@aldiii"
+            handle: "@aldii1_0",
+            img: "https://unavatar.io/tiktok/aldii1_0",
+            url: "https://www.tiktok.com/@aldii1_0"
         }
     ];
 

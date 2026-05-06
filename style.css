@@ -434,9 +434,21 @@ main {
     opacity: 1;
 }
 
-/* Special Case: Basketball Card */
+/* Special Case: Bento Cards with Images */
 .basketball-card {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), url('assets/basketball.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.music-card {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.95)), url('assets/music.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.gaming-card {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.95)), url('assets/gaming.png');
     background-size: cover;
     background-position: center;
 }
