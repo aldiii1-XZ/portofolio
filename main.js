@@ -24,38 +24,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Dynamic Social Cards ---
     const socials = [
-        { 
-            name: "Instagram", 
-            handle: "@aldiyonatan.r", 
-            img: "assets/profile.png", 
-            url: "https://instagram.com/aldiyonatan.r" 
+        {
+            name: "Instagram",
+            handle: "@aldiyonatan.r",
+            img: "assets/profile.png",
+            url: "https://instagram.com/aldiyonatan._"
         },
-        { 
-            name: "WhatsApp", 
-            handle: "+62 812 XXXX XXXX", 
-            img: "assets/basketball.png", 
-            url: "#" 
+        {
+            name: "WhatsApp",
+            handle: "+62 895 3864 56868",
+            img: "assets/profile.png",
+            url: "https://wa.me/62895386456868"
         },
-        { 
-            name: "Facebook", 
-            handle: "Aldi Yonatan Rusnawan", 
-            img: "assets/music.png", 
-            url: "#" 
+        {
+            name: "Facebook",
+            handle: "Aldi Yonatan Rusnawan",
+            img: "assets/music.png",
+            url: "https://facebook.com/aldiyonatan"
         },
-        { 
-            name: "TikTok", 
-            handle: "@aldi_vibe", 
-            img: "assets/gaming.png", 
-            url: "#" 
+        {
+            name: "TikTok",
+            handle: "@aldiii",
+            img: "assets/gaming.png",
+            url: "https://tiktok.com/@aldiii"
         }
     ];
 
     const socialGrid = document.getElementById('social-grid');
-    
+
     if (socialGrid) {
         socials.forEach(social => {
             const card = document.createElement('a');
             card.href = social.url;
+            card.target = "_blank";
+            card.rel = "noopener noreferrer";
             card.className = 'social-card-2026';
             card.innerHTML = `
                 <div class="social-card-blur" style="background-image: url('${social.img}')"></div>
@@ -114,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
-            
+
             // Fix: Only handle valid anchor selectors, ignore single '#'
             if (href !== "#" && href.startsWith("#")) {
                 e.preventDefault();
