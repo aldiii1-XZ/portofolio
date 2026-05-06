@@ -60,11 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
             card.rel = "noopener noreferrer";
             card.className = 'social-card-2026';
             card.innerHTML = `
-                <div class="social-card-blur" style="background-image: url('${social.img}')"></div>
+                <div class="social-card-blur" style="background-image: url('${social.img}'), url('assets/profile.png')"></div>
                 <div class="social-card-content">
                     <div class="social-info">
                         <div class="social-img-wrap">
-                            <img src="${social.img}" alt="${social.name}">
+                            <img src="${social.img}" alt="${social.name}" onerror="this.onerror=null;this.src='assets/profile.png';">
                         </div>
                         <div>
                             <h4 class="social-name">${social.name}</h4>
