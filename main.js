@@ -26,8 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const socials = [
         {
             name: "Instagram",
-            handle: "@aldiyonatan.r",
-            img: "assets/profile.png",
+            handle: "@aldiyonatan._",
+            img: "https://unavatar.io/instagram/aldiyonatan._",
             url: "https://instagram.com/aldiyonatan._"
         },
         {
@@ -39,13 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: "Facebook",
             handle: "Aldi Yonatan Rusnawan",
-            img: "assets/music.png",
-            url: "https://facebook.com/aldiyonatan"
+            img: "https://unavatar.io/facebook/aldi.yonatan.10",
+            url: "https://www.facebook.com/aldi.yonatan.10"
         },
         {
             name: "TikTok",
             handle: "@aldiii",
-            img: "assets/gaming.png",
+            img: "https://unavatar.io/tiktok/aldiii",
             url: "https://tiktok.com/@aldiii"
         }
     ];
