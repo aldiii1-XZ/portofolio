@@ -367,15 +367,15 @@ main {
     transition: all 0.5s ease;
 }
 
-/* 2026 Pop-up Interaction: When grid is hovered, shrink all cards slightly */
+/* 2026 Pop-up Interaction: When grid is hovered, shrink others slightly */
 .bento-grid:has(.bento-card:hover) .bento-card {
-    opacity: 0.6;
-    transform: scale(0.96);
-    filter: blur(2px);
+    opacity: 0.7;
+    transform: scale(0.98);
+    filter: blur(1px);
 }
 
 .bento-card {
-    background: var(--bg-card);
+    background-color: var(--bg-card);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-xl);
     padding: 2.5rem;
@@ -388,11 +388,11 @@ main {
     z-index: 1;
 }
 
-/* Pop-up the hovered card */
+/* Pop-up the hovered card without losing background images */
 .bento-grid .bento-card:hover {
-    background: var(--bg-card-hover);
+    background-color: var(--bg-card-hover);
     border-color: var(--accent);
-    transform: scale(1.06) translateY(-10px);
+    transform: scale(1.05) translateY(-10px);
     opacity: 1;
     filter: blur(0);
     z-index: 10;
