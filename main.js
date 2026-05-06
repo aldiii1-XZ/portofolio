@@ -7,14 +7,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const navToggle = document.getElementById('nav-toggle');
     const sidebar = document.getElementById('sidebar');
 
-    navToggle.addEventListener('click', () => {
-        sidebar.classList.toggle('open');
-    });
+    if (navToggle && sidebar) {
+        navToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+    }
 
     // Close sidebar when clicking a link (mobile)
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
-            if (window.innerWidth <= 1024) {
+            if (window.innerWidth <= 1024 && sidebar) {
                 sidebar.classList.remove('open');
             }
         });
@@ -111,13 +113,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Smooth Scroll (Extra check) ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            const href = this.getAttribute('href');
+            
+            // Fix: Only handle valid anchor selectors, ignore single '#'
+            if (href !== "#" && href.startsWith("#")) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             }
         });
     });
