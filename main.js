@@ -3,6 +3,102 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Prestasi Explorer (Filter + Modal) ---
+    const prestasiModal = document.getElementById('prestasi-modal');
+    const prestasiModalTitle = document.getElementById('prestasi-modal-title');
+    const prestasiModalSubtitle = document.getElementById('prestasi-modal-subtitle');
+    const prestasiModalBody = document.getElementById('prestasi-modal-body');
+
+    const openPrestasiModal = (cardEl) => {
+        if (!prestasiModal || !prestasiModalTitle || !prestasiModalSubtitle || !prestasiModalBody) return;
+
+        const title = cardEl.getAttribute('data-modal-title') || '';
+        const subtitle = cardEl.getAttribute('data-modal-subtitle') || '';
+        const bodyHtml = cardEl.getAttribute('data-modal-body') || '';
+
+        prestasiModalTitle.textContent = title;
+        prestasiModalSubtitle.textContent = subtitle;
+        prestasiModalBody.innerHTML = bodyHtml;
+
+        prestasiModal.classList.add('open');
+        prestasiModal.setAttribute('aria-hidden', 'false');
+
+        const closeBtn = prestasiModal.querySelector('.prestasi-modal-close');
+        if (closeBtn) closeBtn.focus();
+
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closePrestasiModal = () => {
+        if (!prestasiModal) return;
+        prestasiModal.classList.remove('open');
+        prestasiModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    };
+
+    // Filter bar + Cards click
+    const prestasiChips = Array.from(document.querySelectorAll('.prestasi-chip'));
+    const prestasiCards = Array.from(document.querySelectorAll('.prestasi-card'));
+
+    const applyPrestasiFilter = (filterValue) => {
+        prestasiCards.forEach(card => {
+            const cardFilter = card.getAttribute('data-filter') || 'all';
+            const shouldShow = filterValue === 'all' ? true : cardFilter === filterValue;
+
+            card.style.display = shouldShow ? '' : 'none';
+        });
+
+        prestasiChips.forEach(chip => {
+            const active = chip.getAttribute('data-filter') === filterValue;
+            chip.classList.toggle('active', active);
+            chip.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+    };
+
+    // Chip click
+    prestasiChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+            const filterValue = chip.getAttribute('data-filter') || 'all';
+            applyPrestasiFilter(filterValue);
+        });
+    });
+
+    // Card click/open
+    prestasiCards.forEach(card => {
+        const handler = () => openPrestasiModal(card);
+        card.addEventListener('click', handler);
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openPrestasiModal(card);
+            }
+        });
+    });
+
+    // Close modal handlers
+    if (prestasiModal) {
+        prestasiModal.addEventListener('click', (e) => {
+            const closeTarget = e.target;
+            if (closeTarget?.getAttribute && closeTarget.getAttribute('data-close') === 'overlay') {
+                closePrestasiModal();
+            }
+        });
+
+        const closeBtn = prestasiModal.querySelector('.prestasi-modal-close');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closePrestasiModal);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && prestasiModal.classList.contains('open')) {
+                closePrestasiModal();
+            }
+        });
+    }
+
+    // Initialize default state
+    applyPrestasiFilter('all');
+
     // --- Mobile Menu Toggle ---
     const navToggle = document.getElementById('nav-toggle');
     const sidebar = document.getElementById('sidebar');

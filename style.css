@@ -337,9 +337,157 @@ main {
 
 /* Bento Grid */
 .section-header {
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     padding: 0 1rem;
 }
+
+/* Prestasi Explorer (Filter + Modal) */
+.prestasi-filter {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto 2.25rem;
+    padding: 0 1rem;
+}
+
+.prestasi-chip {
+    border: 1px solid var(--border-subtle);
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--text-secondary);
+    padding: 0.75rem 1.1rem;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.prestasi-chip:hover {
+    border-color: var(--accent-glow);
+    color: var(--text-primary);
+}
+
+.prestasi-chip.active {
+    background: rgba(139, 92, 246, 0.18);
+    border-color: rgba(139, 92, 246, 0.55);
+    color: var(--text-primary);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
+}
+
+.prestasi-card {
+    cursor: pointer;
+}
+
+/* Modal */
+.prestasi-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    display: none;
+}
+
+.prestasi-modal.open {
+    display: block;
+}
+
+.prestasi-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.prestasi-modal-panel {
+    position: relative;
+    width: min(820px, calc(100vw - 2rem));
+    margin: 5vh auto;
+    background: rgba(10, 10, 10, 0.62);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 50px 120px rgba(0, 0, 0, 0.65);
+    padding: 2.25rem;
+    transform: translateY(10px) scale(0.98);
+    opacity: 0;
+    animation: prestasiModalIn 220ms ease forwards;
+}
+
+@keyframes prestasiModalIn {
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.prestasi-modal-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    border: 1px solid var(--border-subtle);
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease;
+}
+
+.prestasi-modal-close:hover {
+    border-color: var(--accent-glow);
+    background: rgba(139, 92, 246, 0.2);
+}
+
+.prestasi-modal-header {
+    margin-bottom: 1.25rem;
+}
+
+.prestasi-modal-title {
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+}
+
+.prestasi-modal-subtitle {
+    margin-top: 0.5rem;
+    color: var(--text-secondary);
+    font-weight: 700;
+}
+
+.prestasi-modal-body {
+    color: var(--text-secondary);
+}
+
+.prestasi-modal-body p {
+    margin-bottom: 1rem;
+}
+
+.prestasi-modal-body ul {
+    padding-left: 1.25rem;
+    margin: 0;
+}
+
+.prestasi-modal-body li {
+    margin: 0.5rem 0;
+    color: var(--text-primary);
+    opacity: 0.95;
+}
+
+@media (max-width: 1024px) {
+    .prestasi-filter {
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 1.75rem;
+    }
+}
+
 
 .section-label {
     font-size: 0.75rem;

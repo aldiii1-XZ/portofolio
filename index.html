@@ -117,9 +117,21 @@
                 <h2 class="section-title">Prestasi</h2>
             </div>
 
+            <!-- Filter (Prestasi Explorer) -->
+            <div class="prestasi-filter" role="tablist" aria-label="Filter Prestasi">
+                <button type="button" class="prestasi-chip active" data-filter="all" role="tab" aria-selected="true">All</button>
+                <button type="button" class="prestasi-chip" data-filter="basketball" role="tab" aria-selected="false">Basketball</button>
+                <button type="button" class="prestasi-chip" data-filter="music" role="tab" aria-selected="false">Musik</button>
+                <button type="button" class="prestasi-chip" data-filter="gaming" role="tab" aria-selected="false">Gaming</button>
+            </div>
+
             <div class="bento-grid">
                 <!-- Basket -->
-                <div class="bento-card large basketball-card">
+                <div class="bento-card large basketball-card prestasi-card" role="button" tabindex="0"
+                    data-filter="basketball"
+                    data-modal-title="Basketball"
+                    data-modal-subtitle="Center • Team Focus"
+                    data-modal-body="<p>Placeholder prestasi: jadi <b>Center</b> di beberapa pertandingan sekolah & liga lokal. Fokus pada <b>rebound</b>, <b>spacing</b>, dan komunikasi tim.</p><ul><li>Strategi di paint area</li><li>Latihan konsisten & disiplin</li><li>Lead dari belakang</li></ul>">
                     <div class="card-bg-glow"></div>
                     <div class="card-icon">🏀</div>
                     <div>
@@ -129,7 +141,11 @@
                 </div>
 
                 <!-- Musik -->
-                <div class="bento-card square music-card">
+                <div class="bento-card square music-card prestasi-card" role="button" tabindex="0"
+                    data-filter="music"
+                    data-modal-title="Musician"
+                    data-modal-subtitle="Bassist • Groove & Harmony"
+                    data-modal-body="<p>Placeholder: pengalaman main bass di event kecil sampai sesi latihan band. Kamu jaga <b>groove</b>, transisi, dan timing yang rapi.</p><ul><li>Improvisasi saat live</li><li>Harmoni & tempo</li><li>Kesiapan tampil kapan pun</li></ul>">
                     <div class="card-bg-glow"
                         style="background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.2), transparent);">
                     </div>
@@ -141,15 +157,24 @@
                 </div>
 
                 <!-- Gaming -->
-                <div class="bento-card square gaming-card" style="text-align: center; justify-content: center;">
+                <div class="bento-card square gaming-card prestasi-card" style="text-align: center; justify-content: center;" role="button" tabindex="0"
+                    data-filter="gaming"
+                    data-modal-title="MLBB Tournament"
+                    data-modal-subtitle="ExpLaner • Map Control"
+                    data-modal-body="<p>Placeholder: role sebagai ExpLaner dengan fokus <b>tempo</b>, <b>vision</b>, dan rotasi saat objective.</p><ul><li>Decision making cepat</li><li>Build & adaptasi</li><li>Team synergy</li></ul>">
                     <div class="card-bg-glow"></div>
                     <div class="card-icon" style="font-size: 4rem;">⚔️</div>
                     <h4 class="card-title">MLBB Tournament <br>
                         <span class="card-tag">ExpLaner</span>
+                    </h4>
                 </div>
 
                 <!-- Summary -->
-                <div class="bento-card large">
+                <div class="bento-card large prestasi-card" role="button" tabindex="0"
+                    data-filter="all"
+                    data-modal-title="Disiplin, Harmoni, & Strategi"
+                    data-modal-subtitle="Multi-talented mindset"
+                    data-modal-body="<p>Placeholder: intinya kamu <b>latihan konsisten</b>, menjaga harmoni di semua bidang, dan berpikir strategis sebelum eksekusi.</p><ul><li>Disiplin: rutinitas</li><li>Harmoni: kolaborasi</li><li>Strategi: rencana</li></ul><p class="text-note">Klik filter untuk lihat fokus per bidang.</p>">
                     <div class="card-bg-glow"></div>
                     <div style="display: flex; justify-content: space-between; align-items: flex-start;">
                         <h4 class="card-title">Disiplin, Harmoni, <br> & Strategi</h4>
@@ -164,6 +189,20 @@
                 </div>
             </div>
         </section>
+
+        <!-- Prestasi Modal (hidden default) -->
+        <div id="prestasi-modal" class="prestasi-modal" aria-hidden="true">
+            <div class="prestasi-modal-overlay" data-close="overlay"></div>
+            <div class="prestasi-modal-panel" role="dialog" aria-modal="true" aria-labelledby="prestasi-modal-title">
+                <button type="button" class="prestasi-modal-close" aria-label="Tutup" data-close="button">&times;</button>
+                <div class="prestasi-modal-header">
+                    <h3 id="prestasi-modal-title" class="prestasi-modal-title">Judul</h3>
+                    <p id="prestasi-modal-subtitle" class="prestasi-modal-subtitle">Subtitle</p>
+                </div>
+                <div id="prestasi-modal-body" class="prestasi-modal-body"></div>
+            </div>
+        </div>
+
 
         <!-- Social Section -->
         <section id="kontak" class="social-section">
